@@ -4,4 +4,4 @@ env/
 .coverage.*
 .cache
 geckodriver.log
-
+.idea/
