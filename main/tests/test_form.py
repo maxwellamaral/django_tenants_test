@@ -7,7 +7,9 @@ from selenium.webdriver.common.keys import Keys
 
 
 class PlayerFormTest(LiveServerTestCase):
-    """Testes sobre o formulário de cadastro de jogadores."""
+    """
+    Testes sobre o formulário de cadastro de jogadores.
+    """
 
     driver = None
     pytestmark = pytest.mark.django_db
@@ -27,6 +29,7 @@ class PlayerFormTest(LiveServerTestCase):
     def test_form(self):
         """
         Testa o formulário de cadastro de jogadores.
+        Obs.: é necessário deixar o serviço em execução.
         """
 
         # Choose your url to visit

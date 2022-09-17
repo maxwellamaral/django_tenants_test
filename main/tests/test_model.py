@@ -1,15 +1,25 @@
 """Testes para o modelo de dados do sistema."""
-from django.test import TestCase
+import pytest
+
+from django.contrib.auth.models import User, Group
+from django.urls import reverse
+from django_tenants.test.cases import TenantTestCase
+from django_tenants.test.client import TenantClient
 
 from ..models import Player
 
 
-class ModelTest(TestCase):
+class ModelTest(TenantTestCase):
     """
     Testes para o modelo Player
     """
 
-    def test_product_model(self):
+    def setUp(self):
+        self.client = TenantClient(self.tenant)
+        print(f'Criado tenant: {self.client.tenant}')
+        super(ModelTest, self).setUp()
+
+    def test_player_model(self):
         """
         Testa a criação de um novo jogador.
         """
